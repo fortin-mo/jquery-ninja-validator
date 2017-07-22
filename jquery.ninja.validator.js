@@ -649,9 +649,7 @@ let __tryParseInt = function (value, or) {
 
         else if (typeof (index) === "number") {
             index = parseInt(index);
-            if (index < 0)
-                return null;
-            if (index >= $.ninjaValidator.Validators.length)
+            if (index < 0 || index >= $.ninjaValidator.Validators.length)
                 return null;
 
             return $.ninjaValidator.Validators[index];
@@ -665,6 +663,7 @@ let __tryParseInt = function (value, or) {
                     return current;
             }
         }
+        return null;
     };
 
     /*********************
@@ -678,12 +677,12 @@ let __tryParseInt = function (value, or) {
                 return $.ninjaValidator.format.apply(this, args);
             };
         }
-        if (arguments.length > 2 && params.constructor !== Array) {
+        if (arguments.length > 2 && params.constructor !== Array)
             params = $.makeArray(arguments).slice(1);
-        }
-        if (params.constructor !== Array) {
+
+        if (params.constructor !== Array)
             params = [params];
-        }
+
         $.each(params, function (i, n) {
             source = source.replace(new RegExp("\\{" + i + "\\}", "g"), function () {
                 return n;
@@ -885,7 +884,7 @@ let __tryParseInt = function (value, or) {
     $.ninjaValidator.messages = {
         select: "Select an option",
         checkbox: "Select at least one option",
-        radiobutton: "Selection an option",
+        radiobutton: "Select an option",
         autoCompleteFieldInfo: "This is an autocomplete field",
         required: "Field required.",
         postal_code: "Enter a valid postal code : H0H0H0, H0H 0H0.",
@@ -903,26 +902,26 @@ let __tryParseInt = function (value, or) {
         personnal_name: "Enter a valid name, EX : John, Doh!",
         fullname: "Enter a valid full name, EX : John Doh, Eddy-John Smith!",
         username: "Enter a valid username, minimum of 6 caracteres.",
-        custom_validation: "Must comply to regex : {0}",
-        int_max_value: "Enter an integer smaller or equal to {0}",
-        int_min_value: "Enter an integer bigger or equal to {0}",
-        number_max_value: "Enter a number smaller or equal to {0}",
-        number_min_value: "Enter a number bigger or equal to {0}",
-        string_max_length: "Must contains less than {0} caracters.",
-        string_min_length: "Must contains more than {0} caracters.",
+        custom_validation: "Must comply to regex : {0}", // {0}: regex
+        int_max_value: "Enter an integer smaller or equal to {0}", // {0}: max value
+        int_min_value: "Enter an integer bigger or equal to {0}", // {0}: min value
+        number_max_value: "Enter a number smaller or equal to {0}", // {0}: max value
+        number_min_value: "Enter a number bigger or equal to {0}", // {0}: min value
+        string_max_length: "Must contains less than {0} caracters.", // {0}: max length
+        string_min_length: "Must contains more than {0} caracters.", // {0}: min length
         number: "Enter a valid number.",
         creditcard: "Enter a valid credit card number.",
-        range_length: "Must contains between {0} and {1} caracters.",
-        range: "Must be between {0} and {1}.",
-        max: "Must be smaller or equal to {0}.",
-        min: "Must be bigger or equal to {0}.",
+        range_length: "Must contains between {0} and {1} caracters.", // {0}: lower boundery, {1}: higher boundery
+        range: "Must be between {0} and {1}.", // {0}: lower boundery, {1}: higher boundery
+        max: "Must be smaller or equal to {0}.", // {0}: max value
+        min: "Must be bigger or equal to {0}.", // {0}: min value
         url: "Enter a valid URL.",
         digits: "Enter only digits.",
         invalid: "Invalid field.",
         autocomplete_error: "Cannot find",
         autocomplete_loading: "Loading...",
         ajax_loading: "Loading...",
-        ajax_thrown_error: "Ajax call error : {0}"
+        ajax_thrown_error: "Ajax call error : {0}" // {0}: error message
     };
 
     /************************************************************************************************************************************************************************************
@@ -1482,9 +1481,9 @@ let __tryParseInt = function (value, or) {
                 trigger: oInput.attr('data-trigger')
             })
             oInput.on('show.bs.popover', function (e) {
-                if (!$(this).hasClass(validator.settings.invalid_class)) {
+                if (!$(this).hasClass(validator.settings.invalid_class))
                     e.preventDefault();
-                }
+
             });
         },
 
