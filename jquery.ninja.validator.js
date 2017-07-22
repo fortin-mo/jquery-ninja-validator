@@ -1,23 +1,23 @@
 /*
-*   Version 2.6.3
-*   2015-12-16
-*   Created by Marc-Olivier Fortin
-*   
-*   Tested with bootstrap 3.3 or higher             http://getbootstrap.com/
-*   Tested with DataTables 1.10.9 or higher         http://datatables.net/
-*   Tested with JQuery.Loading 1.1.0                http://github.com/CarlosBonetti/jquery-loading
-*   Tested with Moment 2.10.6                       http://momentjs.com/
-*   Tested with Boostrap.Datetimepicker 4.17.37     https://eonasdan.github.io/bootstrap-datetimepicker/
-*
-*   Thanks to Ariya Hidayat for                     http://esprima.org/demo/validate.html
-*/
+ *   Version 2.6.3
+ *   2015-12-16
+ *   Created by Marc-Olivier Fortin
+ *   
+ *   Tested with bootstrap 3.3 or higher             http://getbootstrap.com/
+ *   Tested with DataTables 1.10.9 or higher         http://datatables.net/
+ *   Tested with JQuery.Loading 1.1.0                http://github.com/CarlosBonetti/jquery-loading
+ *   Tested with Moment 2.10.6                       http://momentjs.com/
+ *   Tested with Boostrap.Datetimepicker 4.17.37     https://eonasdan.github.io/bootstrap-datetimepicker/
+ *
+ *   Thanks to Ariya Hidayat for                     http://esprima.org/demo/validate.html
+ */
 
 /* global jQuery */
 /* global $ */
 
 // check if jQuery is installed and accessible
 if (typeof jQuery === 'undefined')
-  throw new Error('jquery-ninja-validator requires jQuery')
+    throw new Error('jquery-ninja-validator requires jQuery')
 
 let __isDefined = function (value) {
     return typeof value !== 'undefined' && value !== null;
@@ -66,12 +66,12 @@ let __tryParseInt = function (value, or) {
 
     'use strict';
     /**************************************************************************************************************************************************************************
-    *                                                                                   PRIVATE METHODS
-    *****************************************************************************************************************************************************************************/
+     *                                                                                   PRIVATE METHODS
+     *****************************************************************************************************************************************************************************/
     //makes sure placement attribute is correct
     function _fnTryParsePlacement(value, defaultValue) {
         let retValue = __isDefined(defaultValue) ? defaultValue : 'right'; // if no defaultValue is set, right is the default
-        
+
         if (!__isUndefined(value))
             return retValue;
 
@@ -108,7 +108,7 @@ let __tryParseInt = function (value, or) {
     //boolean.TryParse equivalent
     function _fnTryParseBoolean(value, defaultValue) {
         let retValue = __isDefined(defaultValue) ? defaultValue : undefined;
-        
+
         if (!__isDefined(value))
             return retValue;
 
@@ -129,7 +129,7 @@ let __tryParseInt = function (value, or) {
         let val = parseInt(value, 10);
         if (isNaN(val))
             val = defaultValue;
-    
+
         return val;
     }
 
@@ -164,7 +164,7 @@ let __tryParseInt = function (value, or) {
             val_checkbox: oInput.is(':checkbox') ? '' : undefined,
             val_radio_button: oInput.is(':radio') ? '' : undefined,
             val_select: oInput.is('select') ? '' : undefined,
-            val_required : oInput.attr('data-val-required'),
+            val_required: oInput.attr('data-val-required'),
             val_postal_code: oInput.attr('data-val-postalcode'),
             val_phone_number: oInput.attr('data-val-phonenumber'),
             val_email: oInput.attr('data-val-email'),
@@ -192,32 +192,32 @@ let __tryParseInt = function (value, or) {
             val_credit_card: oInput.attr('data-val-creditcard')
         };
         let messages = {
-            val_required : oInput.attr('data-val-required-msg'),
-            val_postal_code : oInput.attr('data-val-postalcode-msg'),
-            val_phone_number : oInput.attr('data-val-phonenumber-msg'),
-            val_email : oInput.attr('data-val-email-msg'),
-            val_password : oInput.attr('data-val-password-msg'),
-            val_equal_to : oInput.attr('data-val-equalto-msg'),
-            val_confirmed_password : oInput.attr('data-val-confirmedpassword-msg'),
-            val_positive_int : oInput.attr('data-val-positiveint-msg'),
-            val_negative_int : oInput.attr('data-val-negativeint-msg'),
-            val_positive_number : oInput.attr('data-val-positivenumber-msg'),
-            val_negative_number : oInput.attr('data-val-negativenumber-msg'),
-            val_year : oInput.attr('data-val-year-msg'),
-            val_date : oInput.attr('data-val-date-msg'),
-            val_date_iso : oInput.attr('data-val-dateiso-msg'),
-            val_personnal_name : oInput.attr('data-val-personnalname-msg'),
-            val_fullname : oInput.attr('data-val-fullname-msg'),
-            val_username : oInput.attr('data-val-username-msg'),
-            val_custom_validation : oInput.attr('data-val-customvalidation-msg'),
-            val_max_int_value : oInput.attr('data-val-maxintvalue-msg'),
-            val_min_int_value : oInput.attr('data-val-minintvalue-msg'),
-            val_min_number_value : oInput.attr('data-val-minnumbervalue-msg'),
-            val_max_number_value : oInput.attr('data-val-maxnumbervalue-msg'),
-            val_max_string_length : oInput.attr('data-val-maxstringlength-msg'),
-            val_min_string_length : oInput.attr('data-val-minstringlength-msg'),
-            val_number : oInput.attr('data-val-number-msg'),
-            val_credit_card : oInput.attr('data-val-creditcard-msg')
+            val_required: oInput.attr('data-val-required-msg'),
+            val_postal_code: oInput.attr('data-val-postalcode-msg'),
+            val_phone_number: oInput.attr('data-val-phonenumber-msg'),
+            val_email: oInput.attr('data-val-email-msg'),
+            val_password: oInput.attr('data-val-password-msg'),
+            val_equal_to: oInput.attr('data-val-equalto-msg'),
+            val_confirmed_password: oInput.attr('data-val-confirmedpassword-msg'),
+            val_positive_int: oInput.attr('data-val-positiveint-msg'),
+            val_negative_int: oInput.attr('data-val-negativeint-msg'),
+            val_positive_number: oInput.attr('data-val-positivenumber-msg'),
+            val_negative_number: oInput.attr('data-val-negativenumber-msg'),
+            val_year: oInput.attr('data-val-year-msg'),
+            val_date: oInput.attr('data-val-date-msg'),
+            val_date_iso: oInput.attr('data-val-dateiso-msg'),
+            val_personnal_name: oInput.attr('data-val-personnalname-msg'),
+            val_fullname: oInput.attr('data-val-fullname-msg'),
+            val_username: oInput.attr('data-val-username-msg'),
+            val_custom_validation: oInput.attr('data-val-customvalidation-msg'),
+            val_max_int_value: oInput.attr('data-val-maxintvalue-msg'),
+            val_min_int_value: oInput.attr('data-val-minintvalue-msg'),
+            val_min_number_value: oInput.attr('data-val-minnumbervalue-msg'),
+            val_max_number_value: oInput.attr('data-val-maxnumbervalue-msg'),
+            val_max_string_length: oInput.attr('data-val-maxstringlength-msg'),
+            val_min_string_length: oInput.attr('data-val-minstringlength-msg'),
+            val_number: oInput.attr('data-val-number-msg'),
+            val_credit_card: oInput.attr('data-val-creditcard-msg')
         }
         oInput.ninja_validation = $.extend(oInput.ninja_validation, validations);
         oInput.ninja_validation_messages = $.extend(oInput.ninja_validation_messages, messages);
@@ -412,9 +412,9 @@ let __tryParseInt = function (value, or) {
                 let datepicker = $(this).data("DateTimePicker");
                 let $inputControl = datepicker.inputControl;
                 if (!__isDefined($inputControl) || $inputControl.length <= 0)
-                     $inputControl = $(this).find('input');
+                    $inputControl = $(this).find('input');
                 if (__isTrue(datepicker.hasChange))
-                     $inputControl.trigger('change');
+                    $inputControl.trigger('change');
                 datepicker.hasChange = false;
             });
 
@@ -431,7 +431,7 @@ let __tryParseInt = function (value, or) {
                     let $to = $('#datepicker_' + minDateTo);
                     if ($to.length > 0 && __isDefined($to.data("DateTimePicker")))
 
-                    $to = $('#datepicker_' + maxDateTo);
+                        $to = $('#datepicker_' + maxDateTo);
                     if ($to.length > 0 && __isDefined($to.data("DateTimePicker")))
                         $to.data("DateTimePicker").maxDate(e.date);
                 })
@@ -544,7 +544,9 @@ let __tryParseInt = function (value, or) {
                     let $elem = $($.ninjaValidator.format(oValidator.settings.autocomplete_info_template, "info_" + oInput.attr('id')));
                     $elem.attr('data-content', oValidator.settings.messages.autoCompleteFieldInfo);
                     $elem.attr('title', 'Info');
-                    $elem.popover({ trigger: 'hover' });
+                    $elem.popover({
+                        trigger: 'hover'
+                    });
                     oInput.parent().append($elem);
                 }
             } else {
@@ -558,7 +560,9 @@ let __tryParseInt = function (value, or) {
                     let $addon = $($.ninjaValidator.format(oValidator.settings.autocomplete_info_template, "info_" + oInput.attr('id')));
                     $addon.attr('data-content', oValidator.settings.messages.autoCompleteFieldInfo);
                     $addon.attr('title', 'Info');
-                    $addon.popover({ trigger: 'hover' });
+                    $addon.popover({
+                        trigger: 'hover'
+                    });
                     $inputGroup.append(oInput);
                     $inputGroup.append($addon);
                 }
@@ -575,11 +579,11 @@ let __tryParseInt = function (value, or) {
     //Adding placeholder required text to inputs
     function _fnRequiredPlaceHolder(oInput, oValidator) {
         let requiredFor = $(oValidator.currentForm).find('[data-val-for="' + oInput.attr('id') + '"]');
-        if (__isTrue(oValidator.settings.enable_field_validation)
-            && __isTrue(oValidator.settings.required_placeholder)
-            && (__isDefined(oInput.attr('data-val-required'))
-                || (__isDefined(requiredFor)
-                && __isDefined($(requiredFor).attr('data-val-required'))))) {//settings.required_placeholder :true to enable required text int input placehover
+        if (__isTrue(oValidator.settings.enable_field_validation) &&
+            __isTrue(oValidator.settings.required_placeholder) &&
+            (__isDefined(oInput.attr('data-val-required')) ||
+                (__isDefined(requiredFor) &&
+                    __isDefined($(requiredFor).attr('data-val-required'))))) { //settings.required_placeholder :true to enable required text int input placehover
             let placeholder = oInput.attr('placeholder');
             if (!placeholder)
                 placeholder = '';
@@ -599,21 +603,17 @@ let __tryParseInt = function (value, or) {
                     if (__isTrue(oValidator.settings.popover_on_checkbox)) //we can disable popover on checkbox
                         oValidator.activatePopover(oInput);
 
-                }
-                else if (oInput.is(':radio')) {
+                } else if (oInput.is(':radio')) {
                     if (__isTrue(oValidator.settings.popover_on_radio)) //we can disable popover on radio
                         oValidator.activatePopover($input);
 
-                }
-                else if (oInput.is('select')) {
+                } else if (oInput.is('select')) {
                     if (__isTrue(oValidator.settings.popover_on_select)) //we can disable popover on select
                         oValidator.activatePopover(oInput);
-                }
-                else
+                } else
                     oValidator.activatePopover(oInput);
 
-            }
-            else if (__isTrue(oValidator.settings.val_msg_label))
+            } else if (__isTrue(oValidator.settings.val_msg_label))
                 oValidator.addValMessageLabel(oInput);
 
             oInput.change(function () {
@@ -623,8 +623,8 @@ let __tryParseInt = function (value, or) {
     }
 
     /************************************************************************************************************************************************************************************
-    *                                                                                           CONSTRUCTOR
-    *************************************************************************************************************************************************************************************/
+     *                                                                                           CONSTRUCTOR
+     *************************************************************************************************************************************************************************************/
     $.ninjaValidator = function (oCaller, oForm, oSettings, oMessages, oAjax) {
         this.settings = $.extend(true, {}, $.ninjaValidator.defaults, oSettings);
         this.settings.messages = $.extend(true, {}, $.ninjaValidator.messages, oMessages);
@@ -656,10 +656,10 @@ let __tryParseInt = function (value, or) {
         } else if (typeof (index) === "string") {
             for (let i = 0; i < $.ninjaValidator.Validators.length; i++) {
                 let current = $.ninjaValidator.Validators[i];
-                if (__isDefined(current)
-                    && __isDefined(current.currentForm)
-                    && (current.currentForm.attr('id') == index
-                    || current.currentForm.attr('name') == index))
+                if (__isDefined(current) &&
+                    __isDefined(current.currentForm) &&
+                    (current.currentForm.attr('id') == index ||
+                        current.currentForm.attr('name') == index))
                     return current;
             }
         }
@@ -694,8 +694,8 @@ let __tryParseInt = function (value, or) {
     //extending our validator with numerous functions and defaults settings
 
     /************************************************************************************************************************************************************************************
-    *                                                                                           DEFAULTS AJAX SETTINGS
-    *************************************************************************************************************************************************************************************/
+     *                                                                                           DEFAULTS AJAX SETTINGS
+     *************************************************************************************************************************************************************************************/
     $.ninjaValidator.ajax = {
         loading_template: '<span><img class="loading-img" src="/Images/loading.ico" /> {0}</span>', //
         submit_action_value: '', //
@@ -727,8 +727,8 @@ let __tryParseInt = function (value, or) {
     };
 
     /************************************************************************************************************************************************************************************
-    *                                                                                           DEFAULTS SETTINGS
-    *************************************************************************************************************************************************************************************/
+     *                                                                                           DEFAULTS SETTINGS
+     *************************************************************************************************************************************************************************************/
     $.ninjaValidator.defaults = {
         datepicker_format: 'yy-mm-dd', // format par defaut des JQuery Datepicker
         datetimepicker_default_date: 'now', // date par defaut pour JQuery Bootstrap Datetimepicker = date d'aujourd'hui
@@ -745,7 +745,7 @@ let __tryParseInt = function (value, or) {
         valid_class: "valid", // class utilise pour les inputs valid
         on_submit: true, // definit si l'on veut binder l'event submit
         popover: false, // definit si l'on veut activer les popover
-        val_msg_label:true,
+        val_msg_label: true,
         popover_placement: "right", // positionnement des popover par defaut
         popover_on_select: true, // activer les popover sur les dropdown / select. Par defaut on met false pour eviter les glitchs visuel
         popover_on_radio: true, // activer les popover sur les  radio button. Par defaut on met false pour eviter les glitchs visuel
@@ -773,8 +773,7 @@ let __tryParseInt = function (value, or) {
         if ($(oItem).attr('data-ninja-activated')) {
             this.logMessage('Already activated !');
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     };
@@ -851,7 +850,7 @@ let __tryParseInt = function (value, or) {
             $.ninjaValidator.setAjaxDefaults(oSettings.ajax);
             delete oSettings.ajax;
         }
-        
+
         $.extend($.ninjaValidator.defaults, oSettings);
     };
 
@@ -879,8 +878,8 @@ let __tryParseInt = function (value, or) {
     }
 
     /************************************************************************************************************************************************************************************
-    *                                                                                           MESSAGES
-    *************************************************************************************************************************************************************************************/
+     *                                                                                           MESSAGES
+     *************************************************************************************************************************************************************************************/
     $.ninjaValidator.messages = {
         select: "Select an option",
         checkbox: "Select at least one option",
@@ -925,8 +924,8 @@ let __tryParseInt = function (value, or) {
     };
 
     /************************************************************************************************************************************************************************************
-    *                                                                                           PROTOTYPE
-    *************************************************************************************************************************************************************************************/
+     *                                                                                           PROTOTYPE
+     *************************************************************************************************************************************************************************************/
     $.ninjaValidator.prototype = {
         /***************************************************
         initilize the form to be validate 
@@ -965,7 +964,8 @@ let __tryParseInt = function (value, or) {
                 });
             }
 
-            if (__isTrue(this.settings.enable_field_validation) && __isTrue(this.settings.required_label)) {//settings.required_label :true if we want to add a star next to the label associated with any required field/input
+            //settings.required_label :true if we want to add a star next to the label associated with any required field/input
+            if (__isTrue(this.settings.enable_field_validation) && __isTrue(this.settings.required_label)) {
                 let labels = $(this.currentForm).find('label[for]');
                 for (let index = 0; index < labels.length; index++) {
                     let label = labels[index];
@@ -1000,7 +1000,7 @@ let __tryParseInt = function (value, or) {
                 if (__isDefined(validator.settings.datatables) && validator.settings.datatables.length > 0) {
                     for (let i = 0; i < validator.settings.datatables.length; i++) {
                         let table = validator.settings.datatables[0];
-                        
+
                         let hiddens = validator.getHiddenRows(table);
 
                         for (let j = 0; j < hiddens.length; j++) {
@@ -1101,7 +1101,7 @@ let __tryParseInt = function (value, or) {
                         if ($input.is(':checked')) //we only submit checked checkbox
                             formdata.append(name, value); //in your controller, the data can be retrive with a string.split
                     } else {
-                        if ($input.is('textarea')) 
+                        if ($input.is('textarea'))
                             value = $input.innerHTML; // in case of a textarea, the value is in the innerHTML
 
                         formdata.append(name, value);
@@ -1131,8 +1131,7 @@ let __tryParseInt = function (value, or) {
                 error: function (jqXHR, textStatus, errorThrown) {
                     if (validator.ajax.error_container && validator.ajax.error_container !== '') {
                         validator.ajax.error(jqXHR, textStatus, errorThrown, validator.ajax.error_container, validator.settings.messages.ajax_thrown_error);
-                    }
-                    else {
+                    } else {
                         validator.ajax.error(jqXHR, textStatus, errorThrown, validator.ajax.success_container, validator.settings.messages.ajax_thrown_error);
                     }
                 }
@@ -1146,8 +1145,8 @@ let __tryParseInt = function (value, or) {
         ********************************/
         getHiddenRows: function (oTable) {
             let hiddens = [];
-            if (oTable) {// if table exists
-                if (oTable.rows)// with new API .DataTable()
+            if (oTable) { // if table exists
+                if (oTable.rows) // with new API .DataTable()
                     hiddens = oTable.getHiddenRows();
                 else if (oTable.fnGetHiddenTrNodes) // with old API .dataTable()
                     hiddens = oTable.fnGetHiddenTrNodes();
@@ -1283,7 +1282,7 @@ let __tryParseInt = function (value, or) {
             for (let index = 0; index < radios.length; index++)
                 if ($(radios[index]).is(':checked'))
                     return true;
-            
+
             return false;
         },
         /***************************************************
@@ -1320,9 +1319,9 @@ let __tryParseInt = function (value, or) {
                 return false;
             }
             let nCheck = 0,
-            nDigit = 0,
-            bEven = false,
-            n, cDigit;
+                nDigit = 0,
+                bEven = false,
+                n, cDigit;
 
             value = value.replace(/\D/g, '');
 
@@ -1430,8 +1429,7 @@ let __tryParseInt = function (value, or) {
                     let regex = new RegExp("^(?:2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]$|^(?:2[0-3]|[01][0-9]):[0-5][0-9]$|^(?:2[0-3]|[01][0-9])");
                     isvalid = regex.test(sep[1]);
                 }
-            }
-            else isvalid = false;
+            } else isvalid = false;
 
             return isvalid;
         },
@@ -1451,11 +1449,11 @@ let __tryParseInt = function (value, or) {
             let regex = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/;
             return regex.test(oInput.val());
         },
-        val_equal_to: function(oInput, value){
+        val_equal_to: function (oInput, value) {
             let compare = $(this.currentForm).find('#' + value);
             if (__isDefined(compare))
                 return (oInput.val() === compare.val());
-            else 
+            else
                 return true;
         },
         val_confirmed_password: function (oInput) {
@@ -1490,7 +1488,7 @@ let __tryParseInt = function (value, or) {
         /***************************************************
         add validation mesasge label above desired input
         **************************************************/
-        addValMessageLabel: function (oInput){
+        addValMessageLabel: function (oInput) {
             let validator = this;
 
             //we check if the label for this input has already been added
@@ -1507,15 +1505,15 @@ let __tryParseInt = function (value, or) {
                 if (__isDefined(oInput.ninja_validation.val_required))
                     if (__isDefined(oInput.ninja_validation_messages.val_required))
                         content += oInput.ninja_validation_messages.val_required;
-                    else 
+                    else
                         content += this.settings.messages.required + ' ';
 
                 vallabel.text(content += validator.getValidationMessage(oInput));
 
                 oInput.before(vallabel);
             }
-            
-            vallabel.hide();//finally, let's hide it.
+
+            vallabel.hide(); //finally, let's hide it.
 
             oInput.focusin(function () {
                 if ($(this).hasClass('invalid')) {
@@ -1528,7 +1526,7 @@ let __tryParseInt = function (value, or) {
 
             oInput.focusout(function () {
                 let lbl = $(this.form).find("label[validation-msg-for='" + this.id + "']")
-                if (lbl.length > 0 ) {
+                if (lbl.length > 0) {
                     lbl.hide();
                 }
             });
@@ -1564,130 +1562,130 @@ let __tryParseInt = function (value, or) {
                     oInput.attr('title', this.settings.messages.required);
             else
                 oInput.attr('title', this.settings.messages.invalid);
-            
+
             oInput.attr('data-content', content += validator.getValidationMessage(oInput));
         },
 
         /***************************************************
         Return validation message content from validation attribute
         **************************************************/
-        getValidationMessage: function (oInput){
+        getValidationMessage: function (oInput) {
             let content = '';
 
             if (__isDefined(oInput.ninja_validation.val_number)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_number)
-                            ? oInput.ninja_validation_messages.val_number
-                            : this.settings.messages.number;
+                content += __isDefined(oInput.ninja_validation_messages.val_number) ?
+                    oInput.ninja_validation_messages.val_number :
+                    this.settings.messages.number;
             }
             if (__isDefined(oInput.ninja_validation.val_postal_code)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_postal_code)
-                            ? oInput.ninja_validation_messages.val_postal_code
-                            : this.settings.messages.postal_code;
+                content += __isDefined(oInput.ninja_validation_messages.val_postal_code) ?
+                    oInput.ninja_validation_messages.val_postal_code :
+                    this.settings.messages.postal_code;
             }
             if (__isDefined(oInput.ninja_validation.val_phone_number)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_phone_number)
-                            ? oInput.ninja_validation_messages.val_phone_number
-                            : this.settings.messages.phone_number;
+                content += __isDefined(oInput.ninja_validation_messages.val_phone_number) ?
+                    oInput.ninja_validation_messages.val_phone_number :
+                    this.settings.messages.phone_number;
             }
             if (__isDefined(oInput.ninja_validation.val_email)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_email)
-                            ? oInput.ninja_validation_messages.val_email
-                            : this.settings.messages.email;
+                content += __isDefined(oInput.ninja_validation_messages.val_email) ?
+                    oInput.ninja_validation_messages.val_email :
+                    this.settings.messages.email;
             }
             if (__isDefined(oInput.ninja_validation.val_password)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_password)
-                            ? oInput.ninja_validation_messages.val_password
-                            : this.settings.messages.password;
+                content += __isDefined(oInput.ninja_validation_messages.val_password) ?
+                    oInput.ninja_validation_messages.val_password :
+                    this.settings.messages.password;
             }
             if (__isDefined(oInput.ninja_validation.val_equal_to)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_equal_to)
-                            ? oInput.ninja_validation_messages.val_equal_to
-                            : this.settings.messages.equal_to;
+                content += __isDefined(oInput.ninja_validation_messages.val_equal_to) ?
+                    oInput.ninja_validation_messages.val_equal_to :
+                    this.settings.messages.equal_to;
             }
             if (__isDefined(oInput.ninja_validation.val_confirmed_password)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_confirmed_password)
-                            ? oInput.ninja_validation_messages.val_confirmed_password
-                            : this.settings.messages.equal_to;
+                content += __isDefined(oInput.ninja_validation_messages.val_confirmed_password) ?
+                    oInput.ninja_validation_messages.val_confirmed_password :
+                    this.settings.messages.equal_to;
             }
             if (__isDefined(oInput.ninja_validation.val_positive_int)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_positive_int)
-                            ? oInput.ninja_validation_messages.val_positive_int
-                            : this.settings.messages.positive_int;
+                content += __isDefined(oInput.ninja_validation_messages.val_positive_int) ?
+                    oInput.ninja_validation_messages.val_positive_int :
+                    this.settings.messages.positive_int;
             }
             if (__isDefined(oInput.ninja_validation.val_negative_int)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_negative_int)
-                            ? oInput.ninja_validation_messages.val_negative_int
-                            : this.settings.messages.negative_int;
+                content += __isDefined(oInput.ninja_validation_messages.val_negative_int) ?
+                    oInput.ninja_validation_messages.val_negative_int :
+                    this.settings.messages.negative_int;
             }
             if (__isDefined(oInput.ninja_validation.val_positive_number)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_positive_number)
-                            ? oInput.ninja_validation_messages.val_positive_number
-                            : this.settings.messages.positive_number;
+                content += __isDefined(oInput.ninja_validation_messages.val_positive_number) ?
+                    oInput.ninja_validation_messages.val_positive_number :
+                    this.settings.messages.positive_number;
             }
             if (__isDefined(oInput.ninja_validation.val_negative_number)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_negative_number)
-                            ? oInput.ninja_validation_messages.val_negative_number
-                            : this.settings.messages.negative_number;
+                content += __isDefined(oInput.ninja_validation_messages.val_negative_number) ?
+                    oInput.ninja_validation_messages.val_negative_number :
+                    this.settings.messages.negative_number;
             }
             if (__isDefined(oInput.ninja_validation.val_year)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_year)
-                            ? oInput.ninja_validation_messages.val_year
-                            : this.settings.messages.year;
+                content += __isDefined(oInput.ninja_validation_messages.val_year) ?
+                    oInput.ninja_validation_messages.val_year :
+                    this.settings.messages.year;
             }
             if (__isDefined(oInput.ninja_validation.val_date)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_date)
-                            ? oInput.ninja_validation_messages.val_date
-                            : this.settings.messages.date;
+                content += __isDefined(oInput.ninja_validation_messages.val_date) ?
+                    oInput.ninja_validation_messages.val_date :
+                    this.settings.messages.date;
             }
             if (__isDefined(oInput.ninja_validation.val_personnal_name)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_personnal_name)
-                            ? oInput.ninja_validation_messages.val_personnal_name
-                            : this.settings.messages.personnal_name;
+                content += __isDefined(oInput.ninja_validation_messages.val_personnal_name) ?
+                    oInput.ninja_validation_messages.val_personnal_name :
+                    this.settings.messages.personnal_name;
             }
             if (__isDefined(oInput.ninja_validation.val_fullname)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_fullname)
-                            ? oInput.ninja_validation_messages.val_fullname
-                            : this.settings.messages.fullname;
+                content += __isDefined(oInput.ninja_validation_messages.val_fullname) ?
+                    oInput.ninja_validation_messages.val_fullname :
+                    this.settings.messages.fullname;
             }
             if (__isDefined(oInput.ninja_validation.val_username)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_username)
-                            ? oInput.ninja_validation_messages.val_username
-                            : this.settings.messages.username;
+                content += __isDefined(oInput.ninja_validation_messages.val_username) ?
+                    oInput.ninja_validation_messages.val_username :
+                    this.settings.messages.username;
             }
             if (__isDefined(oInput.ninja_validation.val_custom_validation)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_custom_validation)
-                            ? oInput.ninja_validation_messages.val_custom_validation
-                            : $.ninjaValidator.format(this.settings.messages.custom_validation, oInput.ninja_validation.val_custom_validation);
+                content += __isDefined(oInput.ninja_validation_messages.val_custom_validation) ?
+                    oInput.ninja_validation_messages.val_custom_validation :
+                    $.ninjaValidator.format(this.settings.messages.custom_validation, oInput.ninja_validation.val_custom_validation);
             }
             if (__isDefined(oInput.ninja_validation.val_max_int_value)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_max_int_value)
-                            ? oInput.ninja_validation_messages.val_max_int_value
-                            : $.ninjaValidator.format(this.settings.messages.int_max_value, oInput.ninja_validation.val_max_int_value);
+                content += __isDefined(oInput.ninja_validation_messages.val_max_int_value) ?
+                    oInput.ninja_validation_messages.val_max_int_value :
+                    $.ninjaValidator.format(this.settings.messages.int_max_value, oInput.ninja_validation.val_max_int_value);
             }
             if (__isDefined(oInput.ninja_validation.val_min_int_value)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_min_int_value)
-                            ? oInput.ninja_validation_messages.val_min_int_value
-                            : $.ninjaValidator.format(this.settings.messages.int_min_value, oInput.ninja_validation.val_min_int_value);
+                content += __isDefined(oInput.ninja_validation_messages.val_min_int_value) ?
+                    oInput.ninja_validation_messages.val_min_int_value :
+                    $.ninjaValidator.format(this.settings.messages.int_min_value, oInput.ninja_validation.val_min_int_value);
             }
             if (__isDefined(oInput.ninja_validation.val_max_number_value)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_max_number_value)
-                            ? oInput.ninja_validation_messages.val_max_number_value
-                            : $.ninjaValidator.format(this.settings.messages.number_max_value, oInput.ninja_validation.val_max_number_value);
+                content += __isDefined(oInput.ninja_validation_messages.val_max_number_value) ?
+                    oInput.ninja_validation_messages.val_max_number_value :
+                    $.ninjaValidator.format(this.settings.messages.number_max_value, oInput.ninja_validation.val_max_number_value);
             }
             if (__isDefined(oInput.ninja_validation.val_min_number_value)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_min_number_value)
-                            ? oInput.ninja_validation_messages.val_min_number_value
-                            : $.ninjaValidator.format(this.settings.messages.number_min_value, oInput.ninja_validation.val_min_number_value);
+                content += __isDefined(oInput.ninja_validation_messages.val_min_number_value) ?
+                    oInput.ninja_validation_messages.val_min_number_value :
+                    $.ninjaValidator.format(this.settings.messages.number_min_value, oInput.ninja_validation.val_min_number_value);
             }
             if (__isDefined(oInput.ninja_validation.val_max_string_length)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_max_string_length)
-                            ? oInput.ninja_validation_messages.val_max_string_length
-                            : $.ninjaValidator.format(this.settings.messages.string_max_length, oInput.ninja_validation.val_max_string_length);
+                content += __isDefined(oInput.ninja_validation_messages.val_max_string_length) ?
+                    oInput.ninja_validation_messages.val_max_string_length :
+                    $.ninjaValidator.format(this.settings.messages.string_max_length, oInput.ninja_validation.val_max_string_length);
             }
             if (__isDefined(oInput.ninja_validation.val_min_string_length)) {
-                content += __isDefined(__isDefinedoInput.ninja_validation_messages.val_min_string_length)
-                            ? oInput.ninja_validation_messages.val_min_string_length
-                            : $.ninjaValidator.format(this.settings.messages.string_min_length, oInput.ninja_validation.val_min_string_length);
+                content += __isDefined(oInput.ninja_validation_messages.val_min_string_length) ?
+                    oInput.ninja_validation_messages.val_min_string_length :
+                    $.ninjaValidator.format(this.settings.messages.string_min_length, oInput.ninja_validation.val_min_string_length);
             }
 
             return content;
@@ -1726,7 +1724,7 @@ let __tryParseInt = function (value, or) {
                     let name = $input.attr('name');
                     if (!__isDefined(name) || name.length <= 0) name = $input.attr('id');
                     let textValue = '';
- 
+
                     if ($input.is(':checkbox'))
                         textValue = $input.is(':checked') ? "true" : "false";
                     else if ($input.is('textarea'))
@@ -1758,8 +1756,7 @@ let __tryParseInt = function (value, or) {
                             success: function (data) {
                                 if (data) {
                                     response(JSON.parse(data));
-                                }
-                                else {
+                                } else {
                                     $(".ui-autocomplete").hide();
                                     validator.showErrorMessage(oInput);
                                 }
@@ -1789,8 +1786,7 @@ let __tryParseInt = function (value, or) {
                                 $(validator.currentForm).find('#' + inputFor).trigger('change');
                             }
                             validator.showErrorMessage(oInput);
-                        }
-                        else {
+                        } else {
                             validator.hideErrorMessage(oInput);
                         }
                     }
@@ -1830,8 +1826,8 @@ let __tryParseInt = function (value, or) {
     };
 
     /************************************************************************************************************************************************************************************
-    *                                                                                           JQUERY PLUGIN FUNCTION
-    *************************************************************************************************************************************************************************************/
+     *                                                                                           JQUERY PLUGIN FUNCTION
+     *************************************************************************************************************************************************************************************/
     /*******************************************
     use this function to perform a submit with ajax
     if the 'form' you want to send isn't a form. Praticacle with
@@ -1864,8 +1860,7 @@ let __tryParseInt = function (value, or) {
                     if (validator.ajax.prevent_default)
                         event.preventDefault();
                 });
-            }
-            else {
+            } else {
                 throw new Error('options.form_container cannot be undefined !');
             }
             return validator;
@@ -1879,12 +1874,12 @@ let __tryParseInt = function (value, or) {
     **********************************************/
     $.fn.ninjaAjaxCall = function (options) {
         let $this = $(this);
-        
+
         if (__isDefined($this.data('ninjaValidator')) || $.ninjaValidator.isNinjaValidate($this))
             return;
         else
             $this.attr('data-ninja-activated', 'true');
-        
+
         let validator = new $.ninjaValidator($this, null, {}, {}, options);
 
         $this.on(validator.ajax.trigger, function (event) {
@@ -1908,8 +1903,7 @@ let __tryParseInt = function (value, or) {
                 error: function (jqXHR, textStatus, errorThrown) {
                     if (validator.ajax.error_container && validator.ajax.error_container !== '') {
                         validator.ajax.error(jqXHR, textStatus, errorThrown, validator.ajax.error_container, validator.settings.messages.ajax_thrown_error);
-                    }
-                    else {
+                    } else {
                         validator.ajax.error(jqXHR, textStatus, errorThrown, validator.ajax.success_container, validator.settings.messages.ajax_thrown_error);
                     }
                 }
@@ -2027,8 +2021,8 @@ let __tryParseInt = function (value, or) {
 
 
     /************************************************************************************************************************************************************************************
-    *                                                                                           DOC.READY
-    *************************************************************************************************************************************************************************************/
+     *                                                                                           DOC.READY
+     *************************************************************************************************************************************************************************************/
     /***************************************************
     Go through all the form with the class data-val-form and initialize
     the validator for each one
@@ -2038,7 +2032,7 @@ let __tryParseInt = function (value, or) {
             $.ninjaValidator.loadScript();
     });
 
-} (jQuery));
+}(jQuery));
 
 /************************************************
 Add a javascript function that basicaly does the same thing
@@ -2051,8 +2045,7 @@ function ninjaAjaxCall() {
 
     if (validator.ajax.url && validator.ajax.url !== null && validator.ajax.url !== '') {
         url = validator.ajax.url;
-    }
-    else {
+    } else {
         url += "/" + validator.ajax.controller + "/" + validator.ajax.action;
     }
     $('#' + validator.ajax.success_container).html($.ninjaValidator.format(validator.ajax.loading_template, validator.settings.messages.ajax_loading));
@@ -2068,8 +2061,7 @@ function ninjaAjaxCall() {
         error: function (jqXHR, textStatus, errorThrown) {
             if (validator.ajax.error_container && validator.ajax.error_container !== '') {
                 validator.ajax.error(jqXHR, textStatus, errorThrown, validator.ajax.error_container, validator.settings.messages.ajax_thrown_error);
-            }
-            else {
+            } else {
                 validator.ajax.error(jqXHR, textStatus, errorThrown, validator.ajax.success_container, validator.settings.messages.ajax_thrown_error);
             }
         }
@@ -2104,4 +2096,4 @@ if ($.isFunction($.fn.DataTable)) {
 if ($.isFunction($.fn.DataTable) && !$.isFunction($.fn.dataTableExt.oApi.fnGetHiddenTrNodes) && !$.isFunction($.fn.dataTableExt.oApi.fnGetHiddenNodes))
     $.getScript("//cdn.datatables.net/plug-ins/1.10.10/api/fnGetHiddenNodes.js");
 /************************************
-************************************/
+ ************************************/
